@@ -1,0 +1,117 @@
+<div class="base bgcolor-0 round-1 container">
+  <% if (locals.errors) { %>
+    <div class="errors">
+      You need to fix the following errors:
+      <ul>
+        <% errors.forEach(error => { %>
+          <li><%= error.message %></li>
+        <% }); %>
+      </ul>
+    </div>
+  <% } %>
+
+
+  <form action="<%= submitPublicationsPath %>" method="post">
+    <% if (!publications.isNewRecord) { %>
+      <input type="hidden" name="_method" value="patch" />
+    <% } else { %>
+        <input type="hidden" name="image_url" value="https://iic2513-groupimgs.s3.us-east-2.amazonaws.com/group_placeholder.png" />
+    <% } %>
+
+    <% if (currentUser) { %>
+        <input type="hidden" name="userId" value="<%= currentUser.id%>" />
+    <% } else { %>
+
+      <div  class="form-group row">
+        <label class="form-label col-3" for="userId">userId</label>
+        <div class="col-8">
+            <input class="form-control-plaintext" type="integer" name="userId" value="<%= publications.userId %>" />
+        </div>
+      </div>
+
+    <% } %>
+
+
+
+    <div  class="form-group row">
+      <label class="form-label col-3" for="title">Nombre publicación</label>
+      <div class="col-8">
+          <input class="form-control-plaintext" type="text" name="title" value="<%= publications.title %>" />
+      </div>
+    </div>
+
+    <div  class="form-group row">
+      <% if(groupId){ %>
+        <input type="hidden" name="groupId" value="<%=groupId%>" />
+      <%} else {%>
+          <label class="form-label col-3" for="groupId">groupId</label>
+          <div class="col-8">
+              <input class="form-control-plaintext" type="integer" name="groupId" value="<%= publications.groupId %>" />
+          </div>
+      <% }%>
+    </div>
+
+    <div  class="form-group row">
+      <label class="form-label col-3" for="category">Categoría</label>
+        
+        <div class="col-8">
+          <select id="category" name="category">
+            <option value="Electro">Electro</option>
+            <option value="Tecnología">Tecnología</option>
+            <option value="Linea blanca">Linea blanca</option>
+            <option value="Dormitorio">Dormitorio</option>
+            <option value="Muebles">Muebles</option>
+            <option value="Vestuario mujer">Vestuario mujer</option>
+            <option value="Vestuario hombre">Vestuario hombre</option>
+            <option value="Niños">Niños</option>
+            <option value="Juguetes">Juguetes</option>
+            <option value="Libros">Libros</option>
+            <option value="DVD/BR">DVD/BR</option>
+            <option value="Hobbies">Hobbies</option>
+            <option value="Deportes">Deportes</option>
+            <option value="Decoración">Decoración</option>
+            <option value="Menaje">Menaje</option>
+            <option value="Comestibles">Comestibles</option>
+            <option value="Otros">Otros</option>
+          </select>
+        </div>
+
+    </div>
+
+
+    
+
+    <div  class="form-group row">
+      <label class="form-label col-3" for="description">Descripción</label>
+      <div class="col-8">
+          <textarea class="form-control-plaintext" type="text" name="description"><%= publications.description %></textarea>
+      </div>
+    </div>
+
+
+    <% if (!publications.isNewRecord) { %>
+      <div  class="form-group row">
+
+        <label class="form-label col-3" for="state">Estado:</label>
+        <select id="state" name="state">
+          <option value="ABIERTA">ABIERTA</option>
+          <option value="EN PAUSA">EN PAUSA</option>
+          <option value="CERRADA">CERRADA</option>
+        </select>
+
+      </div>
+
+    <% } else { %>
+      <input type="hidden" name="state" value="ABIERTA" />
+    <% } %>
+
+
+    <div  class="field">
+      <% if (publications.isNewRecord) { %>
+        <input class="btn-primary btn" type="submit" name="create" value="Create" />
+      <% } else { %>
+        <input class="btn-primary btn" type="submit" name="update" value="Update" />
+      <% } %>
+    </div>
+  </form>
+</div>

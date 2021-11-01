@@ -1,0 +1,43 @@
+<div class="base bgcolor-0 round-1 container">
+    <div class="column">
+        <h2>Ofertas hechas por mi</h2>
+        <div id="posts" class="margin-1 rubik-font">
+
+            <% if (!publicationList.length) { %>
+                <p>No results</p>
+            <% } else { %>
+            <% ofertasList.forEach((oferta) => { %>
+              <% userList.forEach((user) => { %>
+                <% if (oferta.userId == user.id){%>
+                  <% publicationList.forEach((publications) => { %>
+                    <% if (oferta.publicationId == publications.id){%>
+                        <div class="group-tile round-1 bgcolor-2 margined">
+                          <a href ="/publications/<%= publications.id %>">
+                            <div class = "pxx round-1">
+
+                                  <div class="faded faded-right unpadded">
+                                      <img class="bgimg round-1" src="<%= publications.image_url%>">
+                                  </div>
+
+                            </div>
+                          </a>
+                          <div class="">
+                              <a href ="/ofertas/<%= oferta.id %>">
+                                <h3 class="fit m05 zoom hover-pointer"><%= oferta.mensaje %></h3>
+                              </a>
+                          </div>
+                        </div>
+                      <%}%>
+                  <%})%>
+
+
+                   <% } %>
+               <% }) %>
+              <% }) %>
+            <%}%>
+
+        </div>
+    </div>
+
+</div>
+

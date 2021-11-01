@@ -1,0 +1,44 @@
+<div class="navcontainer">
+  <nav class="navbar">
+      <ul class="menu">
+          <li class="logo">
+              <a href="/"><i class="x-logo">X</i><i class="c-logo">C</i><i>hange</i></a>
+          </li>
+
+          <li class="search_bar relative" id="react-search" data-searchPath="<%= searchPath %>"></li>
+
+
+
+        <% if (currentUser) { %>
+          <li class= "item name ">
+            <a href="/users/<%= currentUser.username %>">
+
+              <% if (currentUser.image_url){ %>
+                <img class="resizeprofile navsize" src="<%=currentUser.image_url%>"/>
+
+
+              <% } else { %>
+
+                <img class="resizeprofile navsize" src="https://iic2513-groupimgs.s3.us-east-2.amazonaws.com/default_avatar.png"/>
+              <% } %>
+            </a>
+          </li>
+
+          <li class = "item button">
+            <form action="<%= destroySessionPath %>" method="post">
+              <input type="hidden" name="_method" value="delete" />
+              <input class = "btn-logout hover-pointer" type="submit" value="" />
+            </form>
+          </li>
+
+        <% } else { %>
+          <li class="item button"><a href="<%= newSessionPath %>">Log In</a></li>
+          <li class="item button secondary"><a href="/users/register">Sign Up</a></li>
+        <% } %>
+</div>
+
+
+
+
+    </ul>
+</nav>

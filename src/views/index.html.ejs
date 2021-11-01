@@ -1,0 +1,67 @@
+<div class="base bgcolor-0 round-1 container">
+  <h2>Grupos</h2>
+  <% if (!groupsList.length) { %>
+    <p>No results</p>
+  <% } else { %>
+    <% groupsList.forEach((group) => { %>
+      <div class="group-tile round-1 bgcolor-2 margined">
+        <a href ="/groups/<%= group.id %>">
+          <div id="wena" class = "pxx round-1">
+              
+                <div class="faded faded-right unpadded">
+                    <img class="bgimg round-1" src="<%= group.image_url%>">
+                </div>
+             
+          </div>
+        </a>
+
+
+        <div id="name">
+            <a href ="/groups/<%= group.id %>">    
+              <h3 class="fit m05 zoom hover-pointer"><%= group.name %></h3>
+            </a>
+        </div>
+
+      </div>
+    <% }) %>
+  <%}%>
+
+  <%if (currentUser){ %>
+    
+      <a href="/groups/new">
+        <div class="btn btn-primary" >
+          Crear un nuevo grupo
+        </div>
+      </a>
+    
+  <%}%>
+
+
+</div>
+
+<div class = "base bgcolor-0 round-1 container">
+    
+      <a href="/publications"><div class="btn btn-primary">
+          Navega nuestras Publicaciones
+        </div>
+      </a>
+    
+      <a href="/users">
+        <div class="btn-primary btn">Nuestros usuarios</div>
+      </a>
+    
+
+    <%if (currentUser){ %>
+      <%if (currentUser.is_admin){ %>
+      <div>
+        <a href="/reports">
+          <div class="btn btn-secondary">
+            Reports
+          </div>
+        </a>
+      </div>
+      <%}%>
+    <%}%>
+
+
+  </div>

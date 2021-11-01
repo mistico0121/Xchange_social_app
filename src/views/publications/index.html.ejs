@@ -1,0 +1,29 @@
+<div class="base bgcolor-0 round-1 container">
+<h2>Publicaciones</h2>
+
+    
+      <% publicationsList.forEach((publications) => { %>
+        <div class="group-tile round-1 bgcolor-2 margined">
+          <a href ="/publications/<%= publications.id %>"> 
+            <div class = "pxx round-1">
+                
+                  <div class="faded faded-right unpadded">
+                      <img class="bgimg round-1" src="<%= publications.image_url%>">
+                  </div>
+                
+            </div>
+          </a>
+
+
+          <div class="name">
+              <a href ="/publications/<%= publications.id %>">    
+                <h3 class="fit m05 zoom hover-pointer"><%= publications.title %></h3>
+              </a>
+          </div>
+        </div>
+
+
+
+      <% }) %>
+
+</div>

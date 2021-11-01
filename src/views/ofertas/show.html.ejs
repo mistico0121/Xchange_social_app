@@ -1,0 +1,61 @@
+<div class="base bgcolor-0 round-1 container">
+<h2>Oferta por <a href="/publications/<%= publication.id%>" ><%= publication.title %></h2>
+
+  
+    <div id="info" class="vertical-align profile-row rubik-font">
+      
+        <div id ="image">
+          <% if (publication.image_url) { %>
+            <img class="height-300" src="<%= publication.image_url%>" alt="imagepub"/>
+          <%} else { %>
+            <img class="height-300" src="<%=assetPath('god_of_war.png')%>" alt="Godowa image">
+          <% } %>
+        </div>
+
+        <div id="image">
+          <a href="/users/<%= owner.username %>">
+
+            <% if (owner.image_url){ %>
+                  <img class="resizeprofile resize180" src="<%=owner.image_url%>"/>
+
+              <% } else { %>
+                  <img class="resizeprofile resize180" src="https://iic2513-groupimgs.s3.us-east-2.amazonaws.com/default_avatar.png"/>
+
+              <% } %>
+          </a>
+        </div>
+
+
+        <div class="user-data">
+          <div id="name" class = "big-font">
+              <h2><%= owner.name %></h2> <h4>Santiago, RM.</h4>
+
+          </div>
+        </div>
+      
+    </div>
+    
+      <div class="small-font gray-font">
+        Descripción artículo:
+      </div>
+      <div class="small-font">
+        <%=publication.description%>
+      </div>
+</div>
+
+
+<div class="base bgcolor-0 round-1 container">
+  <h2>Oferta por <%= publication.title %> de <%= ofertante.username %></h2>
+              
+   
+  <div id="react_offercomment_section" class="overflow"
+         data-currentUser="<%= currentUser %>"
+         data-selfPath="<%= selfPath %>"
+         data-offer_id="<%= offer_id %>"
+         data-publishCommentPath="<%= publishCommentPath %>"
+         data-currentUser_id="<%=currentUser.id %>"
+      >
+  </div> 
+
+</div>
+

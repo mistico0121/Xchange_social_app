@@ -1,0 +1,19 @@
+
+<div class="wrapper center">
+    <div class="form-field base bgcolor-0 round-1 container">
+        <h2>Nueva Oferta para <a href = "/publications/<%= publication.id%>"> <%=publication.title%></h2>
+        
+	        <div>
+
+					<% if (publication.image_url) { %>
+						<img class="height-400" src="<%= publication.image_url%>" alt="imagepub"/>
+					<%} else { %>
+						<img class="height-400" src="https://iic2513-groupimgs.s3.us-east-2.amazonaws.com/default_avatar.png" alt="Godowa image">
+					<% } %>
+
+
+			</div>
+		</a>
+        <%- include _form.html.ejs %>
+    </div>
+</div>

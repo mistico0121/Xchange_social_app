@@ -1,0 +1,152 @@
+
+<div class = "bgcolor-0 round-1 margin-1 padded">
+
+	<% if (group.image_url) {%>
+		<img class="no-margin-1 round-1 total-width height-400" src="<%= group.image_url%>" alt="ps4banner"/>
+	<%} else { %>
+		<img class="no-margin-1 round-1 total-width height-400" src="<%= assetPath("ps4_banner.jpg")%>" alt="ps4banner"/>
+	<% } %>
+
+
+	<div id="group-name" class="rubik-font margin-1">
+		<h1><%= group.name %></h1>
+
+		<% if (currentUser){%>
+
+			<% if (!userInGroup){ %>
+				<a href= <%=addUserToThisGroup %> >
+					<div class="btn-primary btn" >Unirse a grupo</div>
+				</a>
+			<%} else {%>
+			<%} %>
+		<%} %>
+
+		<div id="description" class="container description-color rubik-font round-1">
+			<b>Descripción:</b>
+			<br>
+			<%= group.description %>
+		</div>
+
+	</div>
+
+	<div id="members" class="rubik-font margin-1">
+		<h2>Miembros</h2>
+
+		<div id="memberdiv" class="container description-color rubik-font round-1">
+
+			<% if (!userGroupPairs.length) { %>
+				<div id="memberdiv2" class="container description-color rubik-font round-1">
+				Acá irán las publicaciones
+			</div>
+			<% } else { %>
+
+
+			<% userGroupPairs.forEach((pair) => { %>
+				<% users.forEach((user) => { %>
+					<% if (user.id == pair.userId) { %>
+
+
+					<div class="group-tile round-1 bgcolor-2 margined">
+
+				      <div class = "pxx round-1">
+				        <a href ="/users/<%= user.username %>">
+				          <div class="faded faded-right unpadded">
+				              <img class="bgimg round-1" src="<%= user.image_url%>">
+				          </div>
+				        </a>
+				      </div>
+
+				      <!--
+
+				      <img class="bgimg round-1 " src="https://lzerbnaiva.files.wordpress.com/2019/01/kaguya-cries.png?w=700">
+
+				      -->
+
+				      <div id="name">
+				        <a href ="/users/<%= user.username %>">
+				          <h3 class="fit m05 zoom hover-pointer"><%= user.name %></h3>
+				        </a>
+				      </div>
+
+				    </div>
+
+
+
+
+					<% } %>
+
+				<%})%>
+
+
+
+
+
+		 	<%})%>
+
+		<%}%>
+
+		</div>
+
+	</div>
+
+	<div id="posts" class="margin-1 rubik-font">
+		<h2>Publicaciones activas en este grupo</h2>
+
+		<% if (!publicationsList.length) { %>
+			<div id="memberdiv2" class="container description-color rubik-font round-1">
+			Acá irán las publicaciones
+		</div>
+		<% } else { %>
+
+
+			<% publicationsList.forEach((publications) => { %>
+				<div class="group-tile round-1 bgcolor-2 margined">
+
+					<div class = "pxx round-1">
+				        <a href=" <%= getPublicationsPath(publications) %>">
+				          <div class="faded faded-right unpadded">
+				              <img class="bgimg round-1" src="<%= publications.image_url%>">
+				          </div>
+				        </a>
+				      </div>
+
+				      <!--
+
+				      <img class="bgimg round-1 " src="https://lzerbnaiva.files.wordpress.com/2019/01/kaguya-cries.png?w=700">
+
+				      -->
+
+				      <div id="name">
+				        <a href=" <%= getPublicationsPath(publications) %>">
+				          <h3 class="fit m05 zoom hover-pointer"><%= publications.title %></h3>
+				        </a>
+				      </div>
+				    </div>
+
+			<%})%>
+
+		<%}%>
+		<% if (currentUser){%>
+			<% if (userInGroup){ %>
+				<a href= <%=newPublicationsFromGroupPath %> > <div class="btn btn-primary">Nueva Publicación </div></a>
+				<a href= <%=uploadGroupPath %> > <div class="btn btn-primary">Sube una imágen </div></a>
+			<%}%>
+		<%} %>
+
+	    <!--<div class="btn-primary btn" type="submit" name="create" value="Unirse a grupo" /></div>-->
+
+
+
+
+	</div>
+		<%if(currentUser){ %>
+			<%if(currentUser.is_admin || isGroupOwner){ %>
+			<form action="<%= deleteGroupPath %>" method="POST">
+				<input type="hidden" name="_method" value="delete" />
+				<input class="btn btn-danger" type="submit" value="Borrar Grupo">
+			</form>
+			<%}%>
+		<%}%>
+</div>
+
+

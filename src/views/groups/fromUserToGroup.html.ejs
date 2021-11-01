@@ -1,0 +1,44 @@
+<div class="base bgcolor-0 round-1 container margined padded">
+    <% if (locals.errors) { %>
+        <div>
+            You need to fix the following errors:
+            <ul>
+                <% errors.forEach(error => { %>
+                    <li><%= error.message %></li>
+                <% }); %>
+            </ul>
+        </div>
+    <% } %>
+
+    <h2>Deseas unirte al grupo <%=group.name%>? </h2>
+
+    <div class = "row">
+
+        <% if (currentUser.image_url){ %>
+                <img class="resizeprofile sidesize" src="<%=currentUser.image_url%>"/>
+                <img class="resizeprofile sidesize" src="https://iic2513-groupimgs.s3.us-east-2.amazonaws.com/arrow-light-blue.png"/>
+                <img class="resizeprofile sidesize" src="<%=group.image_url%>"/>
+
+
+            <% } else { %>
+
+                <img class="resizeprofile sidesize" src="https://iic2513-groupimgs.s3.us-east-2.amazonaws.com/default_avatar.png"/>
+                <img class="resizeprofile sidesize" src="https://iic2513-groupimgs.s3.us-east-2.amazonaws.com/arrow-light-blue.png"/>
+                <img class="resizeprofile sidesize" src="https://iic2513-groupimgs.s3.us-east-2.amazonaws.com/default_avatar.png"/>
+
+        <% } %>
+
+
+    </div>
+
+    <form action="<%= addUserToGroup %>" method="post">
+
+    	<% if (currentUser) { %>
+                <input type="hidden" name="userId" value="<%= currentUser.id %>" />
+    	<% } %>
+    	<input type="hidden" name="groupId" value="<%= group.id %>" />
+        
+        <input class="btn-primary btn" type="submit" name="create" value="Unirse A Grupo" />
+
+    </form>
+</div>

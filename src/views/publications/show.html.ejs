@@ -1,0 +1,95 @@
+<div class = "base bgcolor-0 round-1 container padded">
+	<div class="background-blue container round-1">
+		<div id="info" class="vertical-align profile-row rubik-font">
+
+			<div id="image">
+				<a href="/users/<%= owner.username %>">
+
+					<% if (owner.image_url){ %>
+				        <img class="resizeprofile" src="<%=owner.image_url%>"/>
+
+				    <% } else { %>
+				        <img class="resizeprofile" src="https://iic2513-groupimgs.s3.us-east-2.amazonaws.com/default_avatar.png"/>
+
+				    <% } %>
+				</a>
+			</div>
+
+
+			<div class="user-data">
+				<div id="name" class = "big-font">
+	                <h2><%= ownerName %></h2> <h4>Santiago, RM.</h4>
+
+	            </div>
+			</div>
+
+		</div>
+		<div id="post_body" class="container bgcolor-0 round-1 border-3d">
+			<div>
+
+				<% if (publications.image_url) { %>
+					<img class="height-400" src="<%= publications.image_url%>" alt="imagepub"/>
+				<%} else { %>
+					<img class="height-400" src="<%=assetPath('god_of_war.png')%>" alt="Godowa image">
+				<% } %>
+
+
+			</div>
+			<div class="align-left rubik-font medium-font">
+				<%= publications.title %>
+			</div>
+			<br>
+
+			<div class="small-font gray-font">
+				Descripción artículo:
+			</div>
+			<div class="small-font">
+				<%=publications.description%>
+			</div>
+		</div>
+			
+
+			<div id="react_comment_section" class="overflow"
+				 data-currentUser="<%= JSON.stringify(currentUser) %>"
+				 data-selfPath="<%= selfPath %>"
+				 data-publication_id="<%= publication_id %>"
+				 data-publishCommentPath="<%= publishCommentPath %>"
+			>
+			</div>
+
+
+
+	<% if(currentUser){ %>
+		<% if(currentUser.id != owner.id){ %>
+		<a href="<%=newOfertaFromPublicationPath%>"><button class="btn-primary">Negociar</button></a>
+		<%}%>
+	<%}%>
+	</div>
+
+	<a href= "/groups/<%=publications.groupId %>" ><div class="btn-secondary btn">Volver al grupo</div></a>
+	
+
+	<% if(currentUser){%>
+		<a href= "<%=newReportFromPublicationPath %>" ><div class="btn-secondary btn">REPORTA ESTA PUBLICACION</div></a>
+
+		<% if(owner.id == currentUser.id){%>
+			<a href= "<%=uploadPublicationPath %>" > <div class="btn-secondary btn">Sube una imagen</div></a>
+			<a href= "<%= editPublicationsPath %>" ><div class="btn-secondary btn">Edita tu Publicación</div></a>
+
+
+			<form action="<%= deletePublicationsPath %>" method="POST">
+				<input type="hidden" name="_method" value="delete" />
+				<input class="btn btn-danger" type="submit" value="Borrar Publicación">
+			</form>
+
+
+		<%}else if(currentUser.is_admin){ %>
+				<form action="<%= deletePublicationsPath %>" method="POST">
+					<input type="hidden" name="_method" value="delete" />
+					<input class="btn btn-danger" type="submit" value="Borrar Publicación">
+				</form>
+		<%}%>
+	<%}%>
+
+</div>
+

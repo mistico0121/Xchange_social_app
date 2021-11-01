@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<div class="base bgcolor-0 round-1 container">
+	<div>
+	  <% if (locals.errors) { %>
+	    <div class="errors">
+	      You need to fix the following errors:
+	      <ul>
+	        <% errors.forEach(error => { %>
+	          <li><%= error.message %></li>
+	        <% }); %>
+	      </ul>
+	    </div>
+	  <% } %>
+
+
+	  <form action="<%= submitReportsPath %>" method="post">
+	    <% if (!reports.isNewRecord) { %>
+	      <input type="hidden" name="_method" value="patch" />
+	    <% } %>
+
+	   	<% if (currentUser) { %>
+	    	 <input type="hidden" name="user_id" value="<%= currentUser.id%>" />
+		<% } %>
+
+		<div  class="form-group row">
+	      <% if(publicationId){ %>
+	        <input type="hidden" name="publication_id" value="<%=publicationId%>" />
+	      <%} else {%>
+	            <div  class="form-group">
+			      <label class="form-label col-3" for="publication_id">Publication ID</label>
+					<div class="col-8">
+					  <input class="form-control-plaintext" type="number" name="publication_id" value="<%= reports.category %>" />
+					</div>
+			    </div>
+	      <% }%>
+	    </div>
+
+
+		<div  class="form-group row">
+	      <label class="form-label col-3" for="text">Infracción a reportar</label>
+	        
+	        <div class="col-8">
+	          <select id="text" name="text">
+	            <option value="Imagen no apropiada">Imagen no apropiada</option>
+	            <option value="Descripción o item no apropiado">Descripción o item no apropiado</option>
+	            <option value="Información de contacto falsa">Información de contacto falsa</option>
+	            <option value="Producto falso o no cumple con lo indicado">Producto falso o no cumple con lo indicado</option>
+	            <option value="Usuario no se presenta">Usuario no se presenta</option>
+	          </select>
+	        </div>
+
+	    </div>
+
+
+	    <div  class="form-group">
+	      <% if (reports.isNewRecord) { %>
+	        <input class="btn-primary btn" type="submit" name="create" value="Create" />
+	      <% } else { %>
+	        <input class="btn-primary btn" type="submit" name="update" value="Update" />
+	      <% } %>
+	    </div>
+	  </form>
+	</div>
+</div>

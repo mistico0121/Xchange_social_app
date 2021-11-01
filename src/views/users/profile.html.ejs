@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="../../assets/styles/layout.scss"/>
+    <link rel="stylesheet" href="<%= assetPath('profile.css') %>">
+</head>
+<body>
+<div id="general" class="rubik-font">
+    <div id="info" class="profile-row">
+        <div id="image">
+
+            <% if (userImageUrl){ %>
+                <img class="resizeprofile" src="<%=userImageUrl%>"/>
+            <% } else { %>
+                <img class="resizeprofile" src="https://iic2513-groupimgs.s3.us-east-2.amazonaws.com/default_avatar.png"/>
+            <% } %>
+        </div>
+
+        <div class="user-data">
+            <div id="name" class = "big-font">
+                <h2><%= userRealName %></h2> <h4>Santiago, RM.</h4>
+
+            </div>
+            <div id="deals">
+                Ventas Realizadas: <%=50%>
+            </div>
+            <div id="rating">
+
+                Rating: <%=Number.isInteger(userRating)?parseFloat(userRating /20).toFixed(2) : "El usuario aún no tiene rating.";%>
+                <%if(Number.isInteger(userRating)){%>
+                    <div class="star-ratings-sprite"><span style="width:<%=userRating%>%" class="star-ratings-sprite-rating"></span></div>
+                <%}%>
+            </div>
+        </div>
+
+    </div>
+    <div class="column">
+        <h2>Ventas del Usuario:</h2>
+        <div id="posts" class="margin-1 rubik-font">
+
+            <% if (!publicationsList.length) { %>
+                <p>No results</p>
+            <% } else { %>
+                <% publicationsList.forEach((publications) => { %>
+                    <div class="group-tile round-1 bgcolor-2 margined">
+                      <a href ="/publications/<%= publications.id %>">
+                        <div class = "pxx round-1">
+
+                              <div class="faded faded-right unpadded">
+                                  <img class="bgimg round-1" src="<%= publications.image_url%>">
+                              </div>
+
+                        </div>
+                      </a>
+                      <div class="">
+                          <a href ="/publications/<%= publications.id %>">
+                            <h3 class="fit m05 zoom hover-pointer"><%= publications.title %></h3>
+                          </a>
+                      </div>
+                    </div>
+                <%})%>
+            <%}%>
+
+        </div>
+    </div>
+
+    <div class="column"> <!--Esto sale como grupos porque no entendi que era objetos buscados (o si ibamos a poner eso)-->
+        <h2>Grupos del Usuario:</h2>
+
+        <div id="posts" class="margin-1 rubik-font column ">
+            <% if (!userGroupPairs.length) { %>
+                <p>El usuario no está en ningún grupo</p>
+            <% } else { %>
+                <% userGroupPairs.forEach((pair) => { %>
+                    <% groups.forEach((grouuup) => { %>
+                        <% if (pair.groupId == grouuup.id) { %>
+
+                            <div class="group-tile round-1 bgcolor-2 margined">
+                                <a href ="/groups/<%= grouuup.id %>">
+                                  <div id="wena" class = "pxx round-1">
+
+                                        <div class="faded faded-right unpadded">
+                                            <img class="bgimg round-1" src="<%= grouuup.image_url%>">
+                                        </div>
+
+                                  </div>
+                                </a>
+
+
+                                <div id="name">
+                                    <a href ="/groups/<%= grouuup.id %>">
+                                      <h3 class="fit m05 zoom hover-pointer"><%= grouuup.name %></h3>
+                                    </a>
+                                </div>
+                            </div>
+                        <%}%>
+
+
+                  <% }) %>
+                <% }) %>
+            <%}%>
+
+        </div>
+
+
+    </div>
+
+    <div class="column"> <!--Esto sale como grupos porque no entendi que era objetos buscados (o si ibamos a poner eso)-->
+        <h2>Reviews del Usuario:</h2>
+
+        <div id="posts" class="margin-1 rubik-font column ">
+            <% if (!reviewsList.length) { %>
+                <p>El usuario no tiene reviews</p>
+            <% } else { %>
+                <% reviewsList.forEach((review) => { %>
+                    <% usersList.forEach((useeer) => { %>
+                        <% if (review.userId ==  useeer.id) { %>
+                            <div class="posleft group-tile round-1 bgcolor-2 column margined padded ">
+                                <div class= "profile-row">
+                                    <div id="image">
+                                        <a href="/users/<%= (useeer.username) %>">
+                                            <img class="thumbnail" src="<%=useeer.image_url%>"/>
+                                        </a>
+                                    </div>
+                                    <div class="column">
+                                        <p class="fit m05 "> Escrito por usuario:
+                                            <a href="/users/<%= (useeer.username) %>">
+                                                <%= (useeer.username) %>
+
+                                            </a>
+                                        </p>
+                                        <p class="fit m05 "> Puntaje: <%= review.puntaje %></p>
+                                    </div>
+                                </div>
+                                <div class = "reviewtext round005 bgcolor-0">
+                                    <p class="fit m05 "><%= review.text %></p>
+                                </div>
+                            </div>
+                        <% } %>
+                    <%})%>
+                <%})%>
+            <%}%>
+
+        </div>
+
+
+    </div>
+
+
+    <% if (currentUser){ %>
+        <div class="container">
+        <a href="<%= newReviewPath %>"><div class="btn btn-primary">Hacerle un review al usuario</div></a>
+        <% if (currentUser.username == username){ %>
+            <a href="<%= uploadUserPath %>"><div class="btn btn-primary">Edita tu avatar</div></a>
+       <% } %>
+        </div>
+   <% } %>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<div class="base bgcolor-0 round-1 container">
+<h2>Nuestros usuarios</h2>
+
+  <% usersList.forEach((user) => { %>
+
+    <div class="group-tile round-1 bgcolor-2 margined">
+
+      <div class = "pxx round-1">
+        <a href ="/users/<%= user.username %>"> 
+          <div class="faded faded-right unpadded">
+              <img class="bgimg round-1" src="<%= user.image_url%>">
+          </div>
+        </a>
+      </div>
+      
+      <!--  
+
+      <img class="bgimg round-1 " src="https://lzerbnaiva.files.wordpress.com/2019/01/kaguya-cries.png?w=700">
+
+      -->
+
+      <div id="name">
+        <a href ="/users/<%= user.username %>">    
+          <h3 class="fit m05 zoom hover-pointer"><%= user.name %></h3>
+        </a>
+      </div>
+
+    </div>
+
+
+
+
+  <% }) %>
+
+
+</div>

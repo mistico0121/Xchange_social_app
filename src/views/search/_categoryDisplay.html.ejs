@@ -1,0 +1,74 @@
+<div class="base bgcolor-0 round-1 container">
+    <h2><%= category %></h2>
+    <% if (!categoryList.length) { %>
+        <p>No se encontraron <%= category %></p>
+    <% } else { %>
+        <% categoryList.forEach((categ) => { %>
+            <div class="group-tile round-1 bgcolor-2 margined">
+                
+                <% if (category === "Publicaciones") { %>
+                    <a href ="/publications/<%= categ.id %>"> 
+                      <div class = "pxx round-1">
+                          
+                            <div class="faded faded-right unpadded">
+                                <img class="bgimg round-1" src="<%= categ.image_url%>">
+                            </div>
+                          
+                      </div>
+                    </a>
+
+
+                    <div class="name">
+                        <a href ="/publications/<%= categ.id %>">    
+                          <h3 class="fit m05 hover-pointer"><%= categ.title %></h3>
+                        </a>
+                    </div>
+
+
+                <% } else { %>
+                    <% if (category === "Grupos") { %>
+                        <a href ="/groups/<%= categ.id %>">
+                          <div class = "pxx round-1">
+                              
+                                <div class="faded faded-right unpadded">
+                                    <img class="bgimg round-1" src="<%= categ.image_url%>">
+                                </div>
+                              
+                          </div>
+                        </a>
+
+
+                        <div class="name">
+                            <a href ="/groups/<%= categ.id %>">    
+                              <h3 class="fit m05 hover-pointer"><%= categ.name %></h3>
+                            </a>
+                        </div>
+
+
+                    <% }else if (category === "Usuarios") {%>
+                        <a href ="/users/<%= categ.username %>">
+                          <div class = "pxx round-1">
+                              
+                                <div class="faded faded-right unpadded">
+                                    <img class="bgimg round-1" src="<%= categ.image_url%>">
+                                </div>
+                              
+                          </div>
+                        </a>
+
+
+                        <div class="name">
+                            <a href ="/users/<%= categ.username %>"> 
+                              <h3 class="fit m05 hover-pointer"><%= categ.name %></h3>
+                            </a>
+                        </div>
+
+                    <% } %>
+
+                <% } %>
+            </div>
+
+        <% }) %>
+    <% } %>
+
+</div>

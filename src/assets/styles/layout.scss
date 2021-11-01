@@ -1,0 +1,593 @@
+@import "navbar";
+@import "sidebar";
+
+html, body {
+  background-color: #e5e5e5;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family:  sans-serif;
+  margin-top: 60px;
+
+
+}
+
+.wrapper {
+  height: fit-content;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.grid{
+  display: grid;
+  grid-column-gap: 15px;
+  grid-template-columns: 1fr 1fr;
+  margin: 10px;
+}
+
+.leftprofile{
+
+}
+.grid-item{
+}
+
+.container {
+  margin: 1vw;
+  padding: 1vw;
+}
+
+.m-1 {
+  margin: 1px;
+}
+
+.bgcolor-0 {
+  background-color: #f3f3f3;
+}
+
+.bgcolor-1 {
+  background-color: #e5e5e5;
+}
+
+.bgcolor-2 {
+  background-color: #dcdcdc;
+}
+
+.bgcolor-3{
+  background-color: #14441c;
+}
+
+.round-1 {
+  border-radius: 10px;
+}
+
+.round005 {
+  border-radius: 5px;
+}
+
+.border-3d{
+  border:1px solid #ccc;
+
+  border-bottom:2px solid #bbb;
+
+  border-top:1px solid #ddd;
+}
+.hover-pointer:hover {
+  color: #317fe1;
+  cursor: pointer;
+}
+
+.m05 {
+  margin: 0.5rem;
+}
+
+.reviewtext{
+  width: 99%;
+
+}
+.reviewtext p{
+  font-size:12px;
+
+}
+
+.zoom {
+  transition: transform .3s;
+}
+
+.zoom:hover {
+  transform: scale(1.15);
+}
+
+.fit {
+  width: fit-content;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.flex-container{
+  display: flex;
+  flex-direction: row;
+  height: auto;
+
+}
+
+.group-tile {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+
+
+.bgimg{
+  height: 120px;
+  max-width: 200px;
+  position: left;
+  object-fit: cover;
+}
+
+.pxx{
+  float:left;
+  width: 200px;
+  height: 120px;
+  background-color: #dcdcdc;
+
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.column{
+  display: flex;
+  flex-direction: column;
+}
+
+.user-data{
+  flex: 5;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}
+
+#name{
+
+  vertical-align: middle;
+  color: black;
+}
+#name h2{
+  display: inline-block;
+  color:black;
+}
+#name h4{
+  display: inline-block;
+  color: gray;
+}
+
+.profile-row{
+  width: auto;
+  display: flex;
+  flex-direction: row;
+}
+#info{
+  height: 300px;
+  //background-color: #317fe1;
+}
+#user-deals{
+  height: 300px;
+  margin: 2%;
+  //background-color: #14441c;
+}
+#user-groups{
+  margin: 2%;
+  height: 300px;
+  //background-color: #006d6d;
+}
+.resizeprofile {
+  object-fit: cover;
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+  margin: 5%;
+}
+
+.resize180{
+  width: 180px;
+  height: 180px;
+}
+
+.sidesize {
+  width: 200px;
+  height: 200px;
+}
+
+.navsize {
+  width: 50px;
+  height: 50px;
+}
+
+.sizemini{
+  width: 60px;
+  height: 60px;
+}
+
+.thumbnail{
+  object-fit: cover;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin: 3%;
+}
+
+.profile-pic {
+  margin: 5%;
+  height:auto;
+  max-width: 90%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.leftdiv{
+  float:left;
+}
+
+
+#image{
+  flex: 3;
+  //background-color: #006d6d;
+}
+
+#region{
+  margin: 2%;
+  float: left;
+  flex: 5;
+}
+
+
+
+.rubik-font {
+  font-family: 'Rubik', sans-serif;
+}
+
+#deals{
+  margin: 2%;
+  font-size: 120%;
+}
+#rating{
+  font-size: 120%;
+  margin: 2%;
+}
+
+.stars-pic{
+  margin-top: 4%;
+  max-width:60%;
+  height:auto;
+}
+
+.big-font{
+  font-size: 200%;
+}
+
+
+
+body {
+  background-color: #e5e5e5;
+}
+#general{
+  background-color: #f3f3f3;
+  padding: 25px;
+  margin: 2%;
+  display: flex;
+  flex-direction: column;
+  height:auto;
+  border-radius: 10px;
+}
+
+.rounded-img {
+  border-radius: 3%;
+}
+
+.total-width{
+  width: 100%;
+}
+.no-margin-1{
+  margin: 0;
+  padding: 0;
+}
+
+.margin-1 {
+  margin: 1%;
+}
+
+.description-color {
+  background-color: #dcdcdc;
+}
+
+.anti-sidebar {
+    margin-left: 280px; /* Same as the width of the sidenav */
+    padding: 0 0;
+    height:auto;
+}
+
+.medium-font {
+  font-size: 150%;
+}
+
+.background-blue {
+  background-color: #e9f0f8;
+}
+.background-blue{
+  background-color: #E1EAF4;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.small-pic {
+  max-width: 10%;
+}
+
+.vertical-align {
+  vertical-align: middle;
+}
+
+.height-400 {
+  height: 400px;
+  object-fit:cover;
+}
+.height-300 {
+  height: 300px;
+  object-fit:cover;
+}
+
+.background-white {
+  background-color: white;
+}
+
+.small-font {
+font-size:100%;
+}
+.gray-font{
+  color: #9E9E9E;
+}
+
+.float-right {
+  float: right;
+}
+
+.width-80{
+  width: 100%;
+  height: 100px;
+}
+
+
+
+.color-input {
+  background-color: #F3F3F3;
+}
+.no-border{
+  border: 0;
+  outline: none;
+}
+
+.non-resizable {
+  resize: none;
+}
+
+.overflow {
+  overflow: hidden;
+}
+
+.btn-input {
+  background-color: #555555;
+}
+
+.background-hard-blue {
+  background-color: #AEE9ED;
+}
+
+.tiny-pic {
+  max-width: 5%;
+}
+
+
+#profile-pic {
+  flex: 1;
+}
+
+#comment_box{
+  flex: 5;
+}
+
+.flex-container{
+  display: flex;
+  flex-direction: row;
+}
+
+.medium-pic {
+  max-width: 50%;
+}
+
+
+@mixin faded($offset, $blur-radius, $spread-radius)
+{
+    &.faded-left:after {
+        box-shadow: inset $offset 0 $blur-radius (-$spread-radius);
+    }
+
+    &.faded-right:after {
+        box-shadow: inset (-$offset) 0 $blur-radius (-$spread-radius);
+    }
+
+    &.faded-top:after {
+       box-shadow: inset 0 $offset $blur-radius (-$spread-radius);
+    }
+
+    &.faded-bottom:after {
+        box-shadow: inset 0 (-$offset) $blur-radius (-$spread-radius);
+    }
+
+    &.faded-left.faded-right:after {
+        box-shadow: inset $offset 0 $blur-radius (-$spread-radius), inset (-$offset) 0 $blur-radius (-$spread-radius);
+    }
+
+    &.faded-left.faded-top:after {
+        box-shadow: inset $offset ($offset) $blur-radius (-$spread-radius);
+    }
+
+    &.faded-right.faded-bottom:after {
+        box-shadow: inset (-$offset) (-$offset) $blur-radius (-$spread-radius);
+    }
+
+    &.faded-top.faded-right:after {
+        box-shadow: inset (-$offset) $offset $blur-radius (-$spread-radius);
+    }
+
+    &.faded-top.faded-bottom:after {
+       box-shadow: inset 0 $offset $blur-radius (-$spread-radius), inset 0 (-$offset) $blur-radius (-$spread-radius);
+    }
+
+    &.faded-left.faded-bottom:after {
+        box-shadow: inset $offset (-$offset) $blur-radius (-$spread-radius);
+    }
+
+    &.faded-top.faded-right.faded-bottom:after {
+        box-shadow: inset (-$offset/2) 0 $blur-radius $spread-radius;
+    }
+
+    &.faded-left.faded-right.faded-bottom:after {
+        box-shadow: inset 0 (-$offset/2) $blur-radius $spread-radius;
+    }
+
+    &.faded-left.faded-top.faded-bottom:after {
+        box-shadow: inset ($offset/2) 0 $blur-radius $spread-radius;
+    }
+
+    &.faded-left.faded-top.faded-right:after {
+        box-shadow: inset 0 ($offset/2) $blur-radius $spread-radius;
+    }
+
+    &.faded-all:after, &.faded-left.faded-top.faded-right.faded-bottom:after {
+        box-shadow: inset 0 0 $blur-radius $spread-radius;
+    }
+}
+
+
+
+
+$faded-offset: 40px !default;
+$faded-blur-radius: 40px !default;
+$faded-spread-radius: 16px !default;
+
+$faded-narrow-offset: 20px !default;
+$faded-narrow-blur-radius: 20px !default;
+$faded-narrow-spread-radius: 10px !default;
+
+$faded-wide-offset: 80px !default;
+$faded-wide-blur-radius: 80px !default;
+$faded-wide-spread-radius: 28px !default;
+
+
+
+.faded {
+    position: absolute;
+    display: inline-block;
+    color: #dcdcdc;
+    z-index: -0;
+
+
+
+    &:after {
+        content: "";
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-collapse: separate;
+    }
+
+    @include faded($faded-offset, $faded-blur-radius, $faded-spread-radius);
+
+    &.faded-narrow {
+        @include faded($faded-narrow-offset, $faded-narrow-blur-radius, $faded-narrow-spread-radius);
+    }
+
+    &.faded-wide {
+        @include faded($faded-wide-offset, $faded-wide-blur-radius, $faded-wide-spread-radius);
+    }
+}
+
+// Colored panel
+.panel {
+  background-color: blue;
+  padding: 1em;
+  color: white;
+
+  .faded {
+    // Use a text color the same as the background colour of the panel will mean the fade effect matches the backround correctly
+    color: blue;
+  }
+}
+
+.margined {
+  margin: 10px;
+}
+
+.padded {
+  padding: 10px;
+}
+
+.posleft{
+  horizontal-align: left;
+}
+
+
+
+.unpadded{
+  margin: 0;
+  padding: 0;
+}
+
+.unpadded img{
+  vertical-align: bottom;
+}
+
+
+.star-ratings-sprite {
+  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2605/star-rating-sprite.png") repeat-x;
+  font-size: 0;
+  height: 21px;
+  line-height: 0;
+  overflow: hidden;
+  text-indent: -999em;
+  width: 110px;
+  margin: 0 auto;
+
+  &-rating {
+    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2605/star-rating-sprite.png") repeat-x 0 100%;
+    float: left;
+    height: 21px;
+    display:block;
+  }
+
+}
+

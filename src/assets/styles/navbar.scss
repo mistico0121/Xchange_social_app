@@ -1,0 +1,256 @@
+.topnav{
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.navcontainer{
+  z-index: 9999;
+  position: fixed;
+  width: 100%;
+  top:0;
+}
+
+.menu input[type=text] {
+  border: none;
+  margin-top: 1%;
+  font-size: 17px;
+  width: 90%;
+}
+.topnav a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 0 2%;
+  text-decoration: none;
+}
+
+.x-logo{
+  font-size: 220%;
+}
+
+.c-logo{
+  font-size: 190%;
+}
+.search_bar {
+  width: 50%;
+  font-size: 14px;
+  line-height: 18px;
+  background-color: white;
+  /*         background-image: url(http://mihaeltomic.com/codepen/input-search/ic_search_black_24px.svg); */
+
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  background-position: 5% center;
+  border-radius: 20px;
+  border: 1px solid #575756;
+  padding: 1px 5%;
+  float: left;
+  outline: none;
+}
+
+.logout{
+  padding: 1% 85%;
+  font-size: 220%;
+}
+.menu{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+nav {
+  z-index: 9999;
+  background: #222222;
+  padding: 5px 20px;
+}
+.navbar ul {
+  list-style-type: none;
+}
+.logo a{
+  color: white;
+  text-decoration: none;
+}
+
+.logo a:hover {
+  text-decoration: none;
+}
+.menu li {
+  font-size: 16px;
+  padding: 15px 5px;
+  white-space: nowrap;
+}
+.logo a,
+.toggle a {
+  font-size: 20px;
+}
+.button.secondary {
+  border-bottom: 1px #444 solid;
+}
+/* Mobile menu */
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.toggle {
+  order: 1;
+}
+.item.button {
+  order: 2;
+}
+.item {
+  width: 100%;
+  text-align: center;
+  order: 3;
+  display: none;
+}
+.logo{
+  padding-left: 2%;
+  font-family: "Corbel", serif;
+  color: white;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 200%;
+  position: relative;
+  white-space: nowrap;
+}
+
+.name{
+  padding-left: 2%;
+  font-family: "Arial";
+  font-style: italic;
+  font-size: 200%;
+  color: white;
+  position: relative;
+}
+
+.item.active {
+  display: block;
+}
+/* Tablet menu */
+@media all and (min-width: 600px) {
+  .menu {
+    justify-content: center;
+  }
+  .logo {
+    flex: 1;
+  }
+  .toggle {
+    flex: 1;
+    text-align: right;
+  }
+  .item.button {
+    width: auto;
+    order: 1;
+    display: block;
+  }
+  .toggle {
+    order: 2;
+  }
+  .button.secondary {
+    border: 0;
+  }
+  .button a {
+    padding: 7.5px 15px;
+    background: teal;
+    font-family: sans-serif;
+    border: 1px #006d6d solid;
+    color: white;
+    text-decoration: none;
+  }
+  .button.secondary a {
+    background: transparent;
+  }
+  .button a:hover {
+    text-decoration: none;
+  }
+  .button:not(.secondary) a:hover {
+    background: #006d6d;
+    border-color: #005959;
+  }
+  .button.secondary a:hover {
+    color: #ddd;
+  }
+}
+/* Desktop menu */
+@media all and (min-width: 900px) {
+  .item {
+    display: block;
+    width: auto;
+  }
+  .toggle {
+    display: none;
+  }
+
+  .search{
+    padding-left: 10%;
+    padding-bottom: 1%;
+    background: transparent;
+    outline: none;
+    border-bottom: 1px solid #fff;
+  }
+
+  .logo {
+    order: 0;
+    flex: 1;
+  }
+  .item {
+    order: 1;
+  }
+  .button {
+    order: 2;
+  }
+  .search_bar{
+    order: 1;
+    flex: 4;
+  }
+  .menu li {
+    padding: 15px 10px;
+  }
+  .menu li.button {
+    padding-right: 0;
+  }
+}
+
+.search-popup {
+  display: flex;
+  position: absolute;
+  left: 0px;
+  top: 100%;
+  z-index: 10000;
+  max-height: 30rem;
+  width: 100%;
+  background-color: white;
+  flex-direction: column;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+
+
+.relative {
+  position: relative;
+}
+
+.hover-background:hover {
+  background-color: rgb(236, 241, 247);
+  cursor: pointer;
+}
+
+.btn-logout {
+  //background-size: contain;
+  background-color: white;
+  background-image: url('../images/logout.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: none;
+  box-shadow: none;
+  height: 50px;
+  width: 50px;
+}
+
+.btn-logout:hover {
+  background-color: #4dd5ff;
+}

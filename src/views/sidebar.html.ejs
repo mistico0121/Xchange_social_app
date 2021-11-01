@@ -1,0 +1,59 @@
+<div class="sidenav round-1">
+
+    <a href="/users/<%= currentUser.username %>">
+        <% if (currentUser.image_url){ %>
+            <img class="resizeprofile sidesize" src="<%=currentUser.image_url%>"/>
+
+
+        <% } else { %>
+
+            <img class="resizeprofile sidesize" src="https://iic2513-groupimgs.s3.us-east-2.amazonaws.com/default_avatar.png"/>
+
+        <% } %>
+
+        <div id="sidebar-user-name" class="rubik-font medium-font align-center">
+            <%= currentUser.name %>
+        </div>
+    </a>
+    <div class="rubik-font align-center">
+        Santiago, RM.
+    </div>
+    <div class="rubik-font padding-1 column">
+        <a href="/"> Inicio</a>
+        <a href="/publications/">Publicaciones</a>
+
+        <form action="<%= searchPath %>" method="post">
+        <div  class="form-group ">
+            <label class="form-label col-3" for="category">Busqueda por categoría</label>
+
+            <div class="">
+              <select id="category" name="category">
+                <option value="Electro">Electro</option>
+                <option value="Tecnología">Tecnología</option>
+                <option value="Linea blanca">Linea blanca</option>
+                <option value="Dormitorio">Dormitorio</option>
+                <option value="Muebles">Muebles</option>
+                <option value="Vestuario mujer">Vestuario mujer</option>
+                <option value="Vestuario hombre">Vestuario hombre</option>
+                <option value="Niños">Niños</option>
+                <option value="Juguetes">Juguetes</option>
+                <option value="Libros">Libros</option>
+                <option value="DVD/BR">DVD/BR</option>
+                <option value="Hobbies">Hobbies</option>
+                <option value="Deportes">Deportes</option>
+                <option value="Decoración">Decoración</option>
+                <option value="Menaje">Menaje</option>
+                <option value="Comestibles">Comestibles</option>
+                <option value="Otros">Otros</option>
+              </select>
+            </div>
+        </div>
+
+        <button class="btn btn-primary" type="submit">Buscar</button>
+        </form>
+
+        <a href="/ofertas/myoffers">Mis ofertas</a>
+        <a href="/ofertas/receivedoffers">Ofertas de mis publicaciones</a>
+        <!--TODO -->
+    </div>
+</div>

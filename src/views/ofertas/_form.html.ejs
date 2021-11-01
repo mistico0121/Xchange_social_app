@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<div class="base bgcolor-0 round-1 container">
+	<div>
+	  <% if (locals.errors) { %>
+	    <div class="errors">
+	      You need to fix the following errors:
+	      <ul>
+	        <% errors.forEach(error => { %>
+	          <li><%= error.message %></li>
+	        <% }); %>
+	      </ul>
+	    </div>
+	  <% } %>
+
+
+	  <form action="<%= submitOfertaPath %>" method="post">
+	    <% if (!oferta.isNewRecord) { %>
+	      <input type="hidden" name="_method" value="patch" />
+	    <% } %>
+
+	   	<% if (currentUser) { %>
+	    	 <input type="hidden" name="userId" value="<%= currentUser.id%>" />
+		<% } %>
+
+		<div  class="form-group row">
+	      <% if(publicationId){ %>
+	        <input type="hidden" name="publicationId" value="<%=publicationId%>" />
+	      <%} else {%>
+	            <div  class="form-group">
+			      <label class="form-label col-3" for="publicationId">Publication ID</label>
+					<div class="col-8">
+					  <input class="form-control-plaintext" type="number" name="publicationId" value="<%= oferta.publicationId %>" />
+					</div>
+			    </div>
+	      <% }%>
+	    </div>
+
+
+	    <div  class="form-group">
+	      <label class="form-label col-3" for="mensaje">Mensaje</label>
+	        <div class="col-8">
+	            <input class="form-control-plaintext" type="text" name="mensaje" value="<%= oferta.mensaje %>" />
+	        </div>
+	    </div>
+
+
+	    <div  class="form-group">
+	      <% if (oferta.isNewRecord) { %>
+	        <input class="btn-primary btn" type="submit" name="create" value="Create" />
+	      <% } else { %>
+	        <input class="btn-primary btn" type="submit" name="update" value="Update" />
+	      <% } %>
+	    </div>
+	  </form>
+	</div>
+</div>

@@ -1,0 +1,27 @@
+<div class="base bgcolor-0 round-1 container">
+
+<h2>Ofertas</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Oferta ID</th>
+        <th>User ID</th>
+        <th>Publication ID</th>
+        <th>Texto</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% ofertasList.forEach((oferta) => { %>
+
+            <tr>
+              <td><%= oferta.id %></td>
+              <td><%= oferta.userId %></td>
+              <td><a href = "/publications/<%= oferta.publicationId %>"> <%= oferta.publicationId %></a></td>
+              <td><a href = "/ofertas/<%= oferta.id %>"> <%= oferta.mensaje %> </a></td>
+              
+            </tr>
+         
+      <% }) %>
+    </tbody>
+  </table>
+</div>

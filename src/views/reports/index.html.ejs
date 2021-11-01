@@ -1,0 +1,34 @@
+<div class="base bgcolor-0 round-1 container">
+
+<h2>Reportes activos</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>User ID</th>
+        <th>Publication ID</th>
+        <th>Reporte</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% reportsUsersPair.forEach((reportsUsersPair) => { %>
+        <%const reports = reportsUsersPair[0]%>
+        <%const user = reportsUsersPair[1]%>
+
+        <tr>
+          <td><a href = "/users/<%= user.username %>"><%= reports.user_id %></a></td>
+          <td><a href = "/publications/<%= reports.publication_id %>"> <%= reports.publication_id %></a></td>
+          <td><%= reports.text %> </td>
+          <td><a href="<%= editReportsPath(reports) %>">Edit</a></td>
+          <td>
+            <form action="<%= deleteReportsPath(reports) %>" method="POST">
+              <input type="hidden" name="_method" value="delete" />
+              <input type="submit" value="Delete" />
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+<a href="<%= newReportsPath %>">Test a new Report</a>
+</div>

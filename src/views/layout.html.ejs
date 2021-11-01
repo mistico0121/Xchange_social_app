@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>X-Change</title>
+    <% if (env !== 'development') { %>
+      <link rel="stylesheet" href="<%= assetPath('app.css') %>">
+    <% } %>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+      <% use_navbar = true%>
+      <% use_sidebar = true%>
+      <% if(use_navbar){ %>
+      <%- include('navbar.html.ejs') %>
+      <% } else { %>
+        <header>
+          <h1>X-Change</h1>
+        </header>
+      <% } %>
+      <% if(currentUser){ %>
+        <%- include('sidebar.html.ejs')%>
+        <div class="anti-sidebar">
+      <% } %>
+          <%- body %>
+            <% if(currentUser){ %>
+        </div>
+      <%}%>
+    <script src="<%= assetPath('app.js') %>"></script>
+  </body>
+
+</html>
